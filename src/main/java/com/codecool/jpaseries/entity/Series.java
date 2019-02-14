@@ -20,10 +20,10 @@ public class Series {
     @Enumerated(EnumType.STRING)
     private Genre genre;
 
-//    @Singular
-//    @OneToMany(mappedBy = "Series", cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
-//    @EqualsAndHashCode.Exclude
-//    private Set<Season> seasons;
+    @Singular
+    @OneToMany(mappedBy = "series", cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
+    @EqualsAndHashCode.Exclude
+    private Set<Season> seasons;
 
 
 }

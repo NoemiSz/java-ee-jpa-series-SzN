@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 @Data
 @NoArgsConstructor
@@ -23,7 +24,16 @@ public class Season {
     private LocalDate releaseDate;
 
     @Transient
-    private int age;
+    private Long age;
+
+    @ManyToOne
+    private Series series;
+
+    public void calculateAge(){
+        if (releaseDate != null){
+            age = ChronoUnit.YEARS.between(releaseDate,LocalDate.now());
+        }
+    }
 
 
 
