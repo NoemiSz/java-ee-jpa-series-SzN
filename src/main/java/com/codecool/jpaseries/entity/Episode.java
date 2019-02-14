@@ -3,10 +3,7 @@ package com.codecool.jpaseries.entity;
 
 import lombok.*;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -26,6 +23,9 @@ public class Episode {
     @ElementCollection
     @Singular
     private List<String> actors;
+
+    @ManyToOne
+    private Season season;
 
 
 }

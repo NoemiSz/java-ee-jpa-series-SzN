@@ -1,13 +1,11 @@
 package com.codecool.jpaseries.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -28,6 +26,11 @@ public class Season {
 
     @ManyToOne
     private Series series;
+
+    @OneToMany(mappedBy = "season", cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
+    @EqualsAndHashCode.Exclude
+    private Set<Episode> episode;
+
 
     public void calculateAge(){
         if (releaseDate != null){
