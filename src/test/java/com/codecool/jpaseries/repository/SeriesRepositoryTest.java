@@ -38,11 +38,11 @@ public class SeriesRepositoryTest {
     @Test
     public void saveSeries(){
 
-        Series snl = Series.builder()
-                .title("Saturday Night Live")
+        Series friends = Series.builder()
+                .title("Friends")
                 .genre(Genre.COMEDY)
                 .build();
-        seriesRepository.save(snl);
+        seriesRepository.save(friends);
 
 
         List<Series> seriesList = seriesRepository.findAll();
@@ -70,12 +70,12 @@ public class SeriesRepositoryTest {
                         .build();
         seasons.add(season3);
 
-        Series snl = Series.builder()
-                .title("Saturday Night Live")
+        Series friends = Series.builder()
+                .title("Friends")
                 .genre(Genre.COMEDY)
                 .seasons(seasons)
                 .build();
-        seriesRepository.save(snl);
+        seriesRepository.save(friends);
 
         assertThat(seasonRepository.findAll()).hasSize(3);
 
